@@ -41,7 +41,7 @@ export default Vue.extend({
     msg: String
   },
   computed: {
-    count() {
+    count(): number {
       return this.$store.state.count
     },
   },
