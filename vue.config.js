@@ -1,4 +1,11 @@
 module.exports = {
-  outputDir: "docs",
+  outputDir: "docs",  // ビルド先の指定
   publicPath: "./",
+  pages: {
+    // エントリーポイントの指定
+    index: {
+      entry: 'src/main.js',
+      title: 'テストページ',
+    },
+  }
 }
