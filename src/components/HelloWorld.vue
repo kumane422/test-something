@@ -8,6 +8,7 @@
     </p>
     <p>ボタンクリックカウンター: {{ count }}</p>
     <button @click="increment">クリック</button>
+    <button @click="initCount">リセット</button>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
@@ -46,6 +47,9 @@ export default {
   methods: {
     increment() {
       this.$store.commit('increment')
+    },
+    initCount() {
+      this.$store.dispatch("resetCount")
     },
   },
 }
