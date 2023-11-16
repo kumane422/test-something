@@ -65,3 +65,6 @@
 #### 状態管理 (Vuex)
 - Vuexインストール
   - npm install vuex@3
+- 値を保持する (localStorage)
+  - storeにgettersとactionsを追加
+  - store.subscribeでstore更新後にlocalStorageを更新
