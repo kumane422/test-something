@@ -53,3 +53,5 @@
     - nvm use 16
   - もういっかいnpm run build
   - docsフォルダにビルドされる
+- ページ設定
+  - vue.config.jsにpages設定を追加しておく
