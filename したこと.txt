@@ -77,3 +77,6 @@
   ? Allow .js files to be compiled? Yes
   ? Skip type checking of all declaration files (recommended for apps)? No
   ```
+- vue.config.jsでの指定ファイルをsrc/main.tsに変更
+- npm run serveはできるけどnpm run buildでエラー
+  - vuex.d.tsを作成し、this.$store.stateを使えるように記述
