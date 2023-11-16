@@ -4,7 +4,7 @@ module.exports = {
   pages: {
     // エントリーポイントの指定
     index: {
-      entry: 'src/main.js',
+      entry: 'src/main.ts',
       title: 'テストページ',
     },
   }

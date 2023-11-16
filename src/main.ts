@@ -5,6 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+const message:string = "HELLO?"
+console.log(message)
+
 new Vue({
   router,
   store,
