@@ -95,3 +95,9 @@
 - Firebaseインストール
   - npm install firebase
   - main.tsにFirebase利用を記述
+- アナリティクス設定
+  - npm i vue-gtag@1
+  - Gタグ確認
+    - Firebaseコンソール > プロジェクトの設定 > 統合 > Google Analytics > Default Account for Firebase
+    - 管理 > データの収集と修正 > データストリーム > ウェブ > 測定ID
+  - main.tsでVueGtagがVueRouterを測定するよう設定

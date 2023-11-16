@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import VueGtag from 'vue-gtag'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -17,8 +17,8 @@ const firebaseConfig = {
   measurementId: "G-6YRHW4W42Z"
 }
 
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+initializeApp(firebaseConfig)
+Vue.use(VueGtag, { config: { id: 'G-6YRHW4W42Z' } }, router);
 
 new Vue({
   router,
