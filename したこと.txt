@@ -55,3 +55,10 @@
   - docsフォルダにビルドされる
 - ページ設定
   - vue.config.jsにpages設定を追加しておく
+#### ページ遷移 (VueRouter)
+- VueRouterインストール
+  - npm install vue-router@3
+- App.vueで使ってるHelloWorld.vueをVueRouterを通して表示するよう設定
+  - App.vueのHelloWorldタグをVueRouterのタグに変更
+  - routerフォルダを用意して"/"がHelloWorldを表示するようページ設定
+  - main.jsでVueRouterを使うよう設定
