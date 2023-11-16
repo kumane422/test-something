@@ -62,3 +62,6 @@
   - App.vueのHelloWorldタグをVueRouterのタグに変更
   - routerフォルダを用意して"/"がHelloWorldを表示するようページ設定
   - main.jsでVueRouterを使うよう設定
+#### 状態管理 (Vuex)
+- Vuexインストール
+  - npm install vuex@3
