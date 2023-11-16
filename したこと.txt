@@ -1,0 +1,38 @@
+#### GitHub PagesでVueページを公開したい
+- npm i -g @vue/cli@4
+  - vueプロジェクトを作るためグローバルにインストール
+- vue create test-something
+  - Windowsがvueコマンドを無効化してる
+  - Get-ExecutionPolicy -List
+    ```
+            Scope ExecutionPolicy
+            ----- ---------------
+    MachinePolicy       Undefined
+       UserPolicy       Undefined
+          Process       Undefined
+      CurrentUser       Undefined
+     LocalMachine       Undefined
+    ```
+  - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+  - Get-ExecutionPolicy -List
+    ```
+            Scope ExecutionPolicy
+            ----- ---------------
+    MachinePolicy       Undefined
+       UserPolicy       Undefined
+          Process       Undefined
+      CurrentUser       Undefined
+     LocalMachine    RemoteSigned
+    ```
+- vue create test-something
+  - Default ([Vue 2] babel, eslint)
+- できたもの
+  - docs/
+  - node_modules/
+  - public/
+  - src/
+  - .gitignore
+  - babel.config.js
+  - package.json
+  - package-lock.json
+  - README.md // いらないから削除
