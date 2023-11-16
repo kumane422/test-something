@@ -80,3 +80,18 @@
 - vue.config.jsでの指定ファイルをsrc/main.tsに変更
 - npm run serveはできるけどnpm run buildでエラー
   - vuex.d.tsを作成し、this.$store.stateを使えるように記述
+#### 無料データベースと連携 (Firebase)
+- Firebaseコンソールでプロジェクト作成
+  - test-something-db
+  - Sparkプラン(無料)になってることを確認
+- アプリ(Web)追加
+  - something-web
+- Cloud Firestore設定
+  - データベースの作成
+  - asia-northeast1 (Tokyo)
+  - 本番モードにしておいてセキュリティルールを変更する
+    - ルール
+    - allow read, write: if true; // 誰でもデータ更新できるので安全ではない
+- Firebaseインストール
+  - npm install firebase
+  - main.tsにFirebase利用を記述
