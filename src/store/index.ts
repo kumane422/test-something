@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 import { Animal } from '@/store/types'
 
 Vue.use(Vuex)
@@ -23,10 +23,12 @@ const savedCount = localStorage.getItem('count')
 
 const store = new Vuex.Store({
   state: {
-    count: savedCount ? JSON.parse(savedCount): 0
+    count: savedCount ? JSON.parse(savedCount): 0,
+    animals: [],
   },
   getters: {
-    count: state => state.count
+    count: state => state.count,
+    animals: state => state.animals,
   },
   mutations: {
     increment(state) {
@@ -35,6 +37,9 @@ const store = new Vuex.Store({
     resetCount(state) {
       state.count = 0
     },
+    getAnimals(state, animals) {
+      state.animals = animals
+    }
   },
   actions: {
     increment({ commit }) {
@@ -42,6 +47,15 @@ const store = new Vuex.Store({
     },
     resetCount({ commit }) {
       commit('resetCount')
+    },
+    async getAnimals({ commit }) {
+      const animals: Animal[] = []
+      const querySnapshot = await getDocs(collection(db, 'animals'))
+      querySnapshot.forEach(element => {
+        const { name, sound } = element.data()
+        animals.push({ name, sound })
+      })
+      commit('getAnimals', animals)
     },
   }
 })

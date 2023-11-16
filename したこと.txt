@@ -103,3 +103,6 @@
   - main.tsでVueGtagがVueRouterを測定するよう設定
 - FireStoreデータベースの値をVueに表示
   - Firebaseの初期化をstore/index.tsに移動
+  - FireStoreでデータベースにコレクションを作成、データを登録
+    - 作成したデータの型をstore/types.tsに定義
+  - store/index.tsでFireStoreからデータ取得しvuexに持つよう設定しVueで呼び出す

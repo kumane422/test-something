@@ -9,6 +9,9 @@
     <p>ボタンクリックカウンター: {{ count }}</p>
     <button @click="increment">クリック</button>
     <button @click="initCount">リセット</button>
+    <template v-if="animals[0]">
+      <p>今日のLucky Animalは...{{ animals[0].name }}!!!</p>
+    </template>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank" rel="noopener">typescript</a></li>
@@ -34,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Animal } from '@/store/types'
 
 export default Vue.extend({
   name: 'HelloWorld',
@@ -44,6 +48,12 @@ export default Vue.extend({
     count(): number {
       return this.$store.state.count
     },
+    animals(): Animal[] {
+      return this.$store.state.animals
+    }
+  },
+  async created() {
+    this.$store.dispatch('getAnimals')
   },
   methods: {
     increment() {
