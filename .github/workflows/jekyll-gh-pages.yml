@@ -36,15 +36,9 @@ jobs:
       ## ビルド
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
-        ## ルートディレクトリが対象
-        with:
-          source: ./
-          destination: ./_site
       ## 成果物をアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-        with:
-          path: './_site'
 
   ## ビルド成果物をデプロイ
   deploy:
