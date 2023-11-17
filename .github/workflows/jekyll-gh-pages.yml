@@ -1,0 +1,58 @@
+## mainブランチをビルドしてGitHub Pagesにデプロイ
+#### GitHub Pages Jekyllをもとにカスタム
+
+## Actionsタブに表示するときの名前
+name: Deploy GitHub Pages
+
+on:
+  ## mainブランチにプッシュされたら実行
+  push:
+    branches: ["main"] 
+  ## 手動実行も可
+  workflow_dispatch:
+
+## GitHub PagesにデプロイするためGITHUB_TOKENの権限付与
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+## 実行するのは1つずつに制限
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  ## ビルド
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      ## リポジトリをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v3
+      ## GitHub Pages用の準備
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      ## ビルド
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        ## ルートディレクトリが対象
+        with:
+          source: ./
+          destination: ./_site
+      ## 成果物をアップロード
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+
+  ## ビルド成果物をデプロイ
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    ## buildジョブを前提とする
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
