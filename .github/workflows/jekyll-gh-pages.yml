@@ -36,9 +36,13 @@ jobs:
       ## ビルド
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
+        with:
+          destination: "./docs"
       ## 成果物をアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+        with:
+          path: "./docs"
 
   ## ビルド成果物をデプロイ
   deploy:
