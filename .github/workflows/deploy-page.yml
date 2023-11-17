@@ -1,5 +1,4 @@
 ## mainブランチをビルドしてGitHub Pagesにデプロイ
-#### GitHub Pages Jekyllをもとにカスタム
 
 ## Actionsタブに表示するときの名前
 name: Deploy GitHub Pages
@@ -33,16 +32,19 @@ jobs:
       ## GitHub Pages用の準備
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      ## ビルド
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      ## Nodeの準備
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          destination: "./docs"
+          node-version: '16.x'
+      ## ビルド
+      - run: npm ci
+      - run: npm run build --if-present
       ## 成果物をアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "./docs"
+          path: './docs'
 
   ## ビルド成果物をデプロイ
   deploy:
