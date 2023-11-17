@@ -106,3 +106,15 @@
   - FireStoreでデータベースにコレクションを作成、データを登録
     - 作成したデータの型をstore/types.tsに定義
   - store/index.tsでFireStoreからデータ取得しvuexに持つよう設定しVueで呼び出す
+#### 環境変数に設定値を隠す
+- .env.development.localを作成
+  - VUE_APP_を頭につける
+  - process.env.VUE_APP_で呼び出せる
+- でもこれだとローカルでしか動かせない
+#### GitHub ActionsでGitHub Pagesに公開するよう変更
+- GitHub > Settings > Pages
+  - SourceをGitHub Actionsに変更
+- Workflow作成
+  - GitHub Actionsに変えたら下におすすめで出てきたGitHub Pages Jekyllを使用
+  - コメント文を自分で理解した文に変更
+  - アップロードするディレクトリを./docsに変更
