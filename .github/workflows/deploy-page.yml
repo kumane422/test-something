@@ -21,10 +21,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-## 環境変数
-env:
-  FB_SECRET: ${{secrets.FB_SECRET}}
-
 jobs:
   ## ビルド
   build:
@@ -42,8 +38,8 @@ jobs:
         with:
           node-version: '16.x'
       ## Secretを用意
-      - run: echo "${{process.env.FB_SECRET}}" > .env
-      - run: echo "${{process.env.FB_SECRET}}"
+      - run: echo "${{secrets.FB_SECRET}}" > .env
+      - run: echo "${{secrets.FB_SECRET}}"
       ## ビルド
       - run: npm ci
       - run: npm run build --if-present
