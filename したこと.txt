@@ -115,6 +115,9 @@
 - GitHub > Settings > Pages
   - SourceをGitHub Actionsに変更
 - Workflow作成
-  - GitHub Actionsに変えたら下におすすめで出てきたGitHub Pages Jekyllを使用
-  - コメント文を自分で理解した文に変更
-  - アップロードするディレクトリを./docsに変更
+- 環境変数を使う
+  - GitHub > Settings > Secrets and variables > Actions
+  - Secrets > New repository secret
+    - FB_SECRETに.env.development.localに書いたものをコピペ
+  - GitHub Actionではenvで呼び出して.envファイルに書き込み
+  
