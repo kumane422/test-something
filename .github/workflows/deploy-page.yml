@@ -42,7 +42,8 @@ jobs:
         with:
           node-version: '16.x'
       ## Secretを用意
-      - run: echo $process.env.FB_SECRET > .env
+      - run: echo "${{process.env.FB_SECRET}}" > .env
+      - run: echo "${{process.env.FB_SECRET}}"
       ## ビルド
       - run: npm ci
       - run: npm run build --if-present
