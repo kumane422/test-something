@@ -1,11 +1,18 @@
 module.exports = {
-  outputDir: "docs",  // ビルド先の指定
+  // ビルド先の指定
+  outputDir: "docs",
+
   publicPath: "./",
+
   pages: {
     // エントリーポイントの指定
     index: {
       entry: 'src/main.ts',
       title: 'テストページ',
     },
-  }
+  },
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

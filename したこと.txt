@@ -120,4 +120,8 @@
   - Secrets > New repository secret
     - FB_SECRETに.env.development.localに書いたものをコピペ
   - GitHub Actionではenvで呼び出して.envファイルに書き込み
-  
+#### デザインテンプレートを入れてみる
+- Vuetify
+  - npm install vuetify@2
+  - vue add vuetify
+    - Vuetify 2 - Vue CLI (recommended)
